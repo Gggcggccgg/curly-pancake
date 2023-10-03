@@ -1,24 +1,26 @@
-#1.1 Implement a recursive function to calculate the factorial of a given number.
-
-"""
-1! = 1 x 1
-2! = 2 x 1! --->2 x 1
-3! = 3 x 2! --->3 x 2 x 1
-. 
-. 
-10! = 10 × 9! ---> 10 × 9 × 8 ×... × 1
-
-Formula - n × (n-1)
-"""
-
-
-def fact_rec(n):
- if n==0 or n==1:
-  return 1
- else:
-   return n*fact_rec(n-1)
-
-number = int(input("Enter a value : "))
-res = fact_rec(number)
-
-print("The factorial of {} is {}.".format(number, res))
+class BankAccount:
+    def __init__(self, account_number, account_holder_name, initial_balance=0.0):
+        self.__account_number = account_number
+        self.__account_holder_name = account_holder_name
+        self.__account_balance =initial_balance
+    def deposit(self, amount):
+      if amount >0:
+        self.__account_balance += amount
+        print("deposited ₹ {}.New Balance: ₹{}".format(amount, self.__account_balance))
+      else:
+        print("Invalid deposit amount.")
+    def withdraw(self, amount):
+        if amount>0 and amount <= self.__account_balance:
+            self.__account_balance -= amount
+            print("withdraw ₹{}.New balance:₹{}". format (amount,self.__account_balance))
+        else:
+            print("Insufficient funds")
+    def display_balance(self):
+        print("Account balance for {}  (Account #{} ):₹{}" .format(self.__account_holder_name, self.__account_number,self.__account_balance))
+# Create an instance of the BankAccount class
+account = BankAccount(account_number="1234567890", account_holder_name="keerthana",initial_balance= 5000)
+# Test the deposit and withdrawal functionality
+account.display_balance()
+account.deposit(500)
+account.withdraw(300)
+account.display_balance()
