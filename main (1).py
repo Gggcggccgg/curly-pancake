@@ -1,14 +1,18 @@
-def CheckLeap(Year):
-    # Checking if the given year is a leap year
-    if ((Year % 400 == 0) or
-        (Year % 100 != 0) and
-        (Year % 4 == 0)):
-        print("Given Year is a leap Year")
-    else:
-        print("Given Year is not a leap year")
-
-# Taking an input year from the user
-Year = int(input("Enter the number: "))
-# Pr
-ppinting the result
-CheckLeap(Year)
+# define the base class player
+class Player:
+    def play(self):
+        print("The player is playing cricket.")
+# define the Derived class Batsman 
+class Batsman(Player):
+    def play(self):
+        print("The batsman is batting.")
+# define the Derived class Bowler
+class Bowler(Player):
+    def play(self):
+        print("The bowler is bowling.")
+# Create objects of both the Batsman and Bowler classes
+batsman = Batsman()
+bowler = Bowler()
+# Call the play() method for each object
+batsman.play()
+bowler.play()
